@@ -86,17 +86,17 @@ sudo setfacl -Rm default:group:${group_name}:rwx ${shared_folder}
 # Create symlinks/Desktop shortcuts to improve user experience
 if [ ! -L ~/Desktop/data ]; then 
     ln -s /data ~/Desktop/.
-    sudo chown user_name: ~/Desktop/data
+    # sudo chown user_name: ~/Desktop/data
 fi
 
 if [ ! -L ~/Desktop/opening_deeplabcut.odt ]; then 
     ln -s /Users/ubuntu/opening_deeplabcut.odt ~/Desktop/.
-    sudo chown user_name: ~/Desktop/opening_deeplabcut.odt
+    # sudo chown user_name: ~/Desktop/opening_deeplabcut.odt
 fi
 
 if [ ! -L ~/Desktop/MateTerminal ]; then 
     ln -s /Users/ubuntu/MateTerminal ~/Desktop/.
-    sudo chown user_name: ~/Desktop/MateTerminal  
+    # sudo chown user_name: ~/Desktop/MateTerminal  
 fi
 
 
