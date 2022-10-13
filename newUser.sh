@@ -85,7 +85,7 @@ sudo setfacl -Rm default:group:${group_name}:rwx ${shared_folder}
 
 # Create symlinks/Desktop shortcuts to improve user experience
 if [ ! -L ~/Desktop/data ]; then 
-    ln -s /data ~/Desktop/.
+    ln -s /mnt/data ~/Desktop/.
     # sudo chown user_name: ~/Desktop/data
 fi
 
