@@ -84,11 +84,19 @@ sudo setfacl -Rm default:group:${group_name}:rwx ${shared_folder}
 
 
 # Create symlinks/Desktop shortcuts to improve user experience
-# if [ ! -d ${shared_folder} ]; then NOT SURE IF I HAVE TO CATCH THE EXCEPTION THAT THE LINK ALREADY EXISTS?
-    ls -s /data ~/Desktop
+if [ ! -L ~/Desktop/data ]; then 
+    ln -s /data ~/Desktop/.
     sudo chown user_name: ~/Desktop/data
-    ls -s /Users/ubuntu/openlabcut.odt ~/Desktop
-    sudo chown user_name: ~/Desktop/openlabcut.odt
-    ls -s /Users/ubuntu/MateTerminal ~/Desktop
+fi
+
+if [ ! -L ~/Desktop/opening_deeplabcut.odt ]; then 
+    ln -s /Users/ubuntu/opening_deeplabcut.odt ~/Desktop/.
+    sudo chown user_name: ~/Desktop/opening_deeplabcut.odt
+fi
+
+if [ ! -L ~/Desktop/MateTerminal ]; then 
+    ln -s /Users/ubuntu/MateTerminal ~/Desktop/.
     sudo chown user_name: ~/Desktop/MateTerminal  
-# fi
+fi
+
+
