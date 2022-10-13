@@ -90,12 +90,12 @@ if [ ! -L ~/Desktop/data ]; then
 fi
 
 if [ ! -L ~/Desktop/opening_deeplabcut.odt ]; then 
-    ln -s /Users/ubuntu/opening_deeplabcut.odt ~/Desktop/.
+    ln -s /home/ubuntu/Desktop/opening_deeplabcut.odt ~/Desktop/.
     # sudo chown user_name: ~/Desktop/opening_deeplabcut.odt
 fi
 
 if [ ! -L ~/Desktop/mater-terminal.desktop ]; then 
-    ln -s /Users/ubuntu/Desktop/mate-terminal.desktop ~/Desktop/.
+    ln -s /home/ubuntu/Desktop/mate-terminal.desktop ~/Desktop/.
     # sudo chown user_name: ~/Desktop/mate-terminal.desktop
 fi
 
