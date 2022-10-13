@@ -2,7 +2,7 @@
 
 # Name of the group everybody is in
 group_name='research'
-shared_folder='/data' # do we have to check that they do not already use /data?
+shared_folder='/mnt/data' # THIS IS NOW POINTING DIRECTLY TO THE MOUNTED RESERACH DRIVE
 
 function display_help {
     echo ""
@@ -61,7 +61,7 @@ else
     sudo chmod 700 /home/${user_name}
     sudo chown -R ${user_name}: /home/${user_name}
     sudo usermod -a -G ${group_name} ${user_name}
-    echo "${user_name}	ALL=(ALL) NOPASSWD: ALL" | sudo tee --append /etc/sudoers
+    echo "${user_name}  ALL=(ALL) NOPASSWD: ALL" | sudo tee --append /etc/sudoers
 fi
 
 # Create shared folder if it does not exist yet
@@ -70,8 +70,8 @@ if [ ! -d ${shared_folder} ]; then
 fi
 
 # install dependency package
-sudo dpkg -l acl > /dev/null
-if [ "$?" -gt "0" ]; then
+# sudo dpkg -l acl > /dev/null
+#if [ "$?" -gt "0" ]; then
     sudo apt-get install acl
 fi
 
@@ -82,3 +82,13 @@ sudo chmod -R g+s ${shared_folder}
 sudo setfacl -Rm group:${group_name}:rwx ${shared_folder}
 sudo setfacl -Rm default:group:${group_name}:rwx ${shared_folder}
 
+
+# Create symlinks/Desktop shortcuts to improve user experience
+# if [ ! -d ${shared_folder} ]; then NOT SURE IF I HAVE TO CATCH THE EXCEPTION THAT THE LINK ALREADY EXISTS?
+    ls -s /data ~/Desktop
+    sudo chown user_name: ~/Desktop/data
+    ls -s /Users/ubuntu/openlabcut.odt ~/Desktop
+    sudo chown user_name: ~/Desktop/openlabcut.odt
+    ls -s /Users/ubuntu/MateTerminal ~/Desktop
+    sudo chown user_name: ~/Desktop/MateTerminal  
+# fi
