@@ -70,8 +70,8 @@ if [ ! -d ${shared_folder} ]; then
 fi
 
 # install dependency package
-# sudo dpkg -l acl > /dev/null
-#if [ "$?" -gt "0" ]; then
+sudo dpkg -l acl > /dev/null
+if [ "$?" -gt "0" ]; then
     sudo apt-get install acl
 fi
 
@@ -94,9 +94,9 @@ if [ ! -L ~/Desktop/opening_deeplabcut.odt ]; then
     # sudo chown user_name: ~/Desktop/opening_deeplabcut.odt
 fi
 
-if [ ! -L ~/Desktop/MateTerminal ]; then 
-    ln -s /Users/ubuntu/MateTerminal ~/Desktop/.
-    # sudo chown user_name: ~/Desktop/MateTerminal  
+if [ ! -L ~/Desktop/mater-terminal.desktop ]; then 
+    ln -s /Users/ubuntu/Desktop/mate-terminal.desktop ~/Desktop/.
+    # sudo chown user_name: ~/Desktop/mate-terminal.desktop
 fi
 
 
