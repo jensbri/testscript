@@ -84,19 +84,19 @@ sudo setfacl -Rm default:group:${group_name}:rwx ${shared_folder}
 
 
 # Create symlinks/Desktop shortcuts to improve user experience
-if [ ! -L ~/Desktop/data ]; then 
-    ln -s /mnt/data ~/Desktop/.
-    # sudo chown user_name: ~/Desktop/data
+if [ ! -L "${user_name}/Desktop/data" ]; then 
+    "ln -s /mnt/data ${user_name}/Desktop/."
+    # "sudo chown ${user_name}: ${user_name}/Desktop/data"
 fi
 
-if [ ! -L ~/Desktop/opening_deeplabcut.odt ]; then 
-    ln -s /home/ubuntu/Desktop/opening_deeplabcut.odt ~/Desktop/.
-    # sudo chown user_name: ~/Desktop/opening_deeplabcut.odt
+if [ ! -L "${user_name}/Desktop/opening_deeplabcut.odt" ]; then 
+    "ln -s /home/ubuntu/Desktop/opening_deeplabcut.odt ${user_name}/Desktop/."
+    # "sudo chown ${user_name}: ${user_name}/Desktop/opening_deeplabcut.odt"
 fi
 
-if [ ! -L ~/Desktop/mater-terminal.desktop ]; then 
-    ln -s /home/ubuntu/Desktop/mate-terminal.desktop ~/Desktop/.
-    # sudo chown user_name: ~/Desktop/mate-terminal.desktop
+if [ ! -L "${user_name}/Desktop/mater-terminal.desktop" ]; then 
+    "ln -s /home/ubuntu/Desktop/mate-terminal.desktop ${user_name}/Desktop/."
+    # "sudo chown ${user_name}: ${user_name}/Desktop/mate-terminal.desktop"
 fi
 
 
